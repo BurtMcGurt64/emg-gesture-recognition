@@ -170,6 +170,6 @@ While this system has limitations, working on it gave me a better understanding 
 - Gesture-based human-computer interaction
 - Signal decoding in neuroengineering research
 
-Along the way, I learned a lot—not just in software and modeling, but also in working with real hardware. I had to figure out how to solder connections, choose the right jumper wires, and understand how to safely wire up components using VIN, GND, and ENV ports on a microcontroller. I also spent time tuning parameters like baud rate and sampling frequency to ensure stable data transfer.
+Along the way, I learned a lot - both in software and modeling, and also in working with real hardware. I had to figure out how to solder connections, choose the right jumper wires, and understand how to safely wire up components using VIN, GND, and ENV ports on a microcontroller. I also spent time tuning parameters like baud rate and sampling frequency to ensure stable data transfer.
 
 On the signal side, the project deepened my understanding of concepts like Nyquist frequency, aliasing, sampling rate tradeoffs, and filter design (by using a Butterworth bandpass to isolate muscle activity). Debugging these systems in real time really forced me to think about how noise, latency, and theoretical choices affect the final product's performance.
