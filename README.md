@@ -146,6 +146,94 @@ model = EMGMultiInputModel(signal_length=250, num_classes=4)
 torch.save(model.state_dict(), 'emg_model.pth')
 ```
 
+## Web Interface Usage
+
+### Starting the Web App
+```bash
+# Navigate to project directory
+cd EMG
+
+# Install dependencies (first time only)
+npm install
+
+# Start the development server
+npm start
+```
+
+The app will open automatically at `http://localhost:3000`
+
+### Using the Web Interface
+
+#### 1. **Gesture Selection**
+- Click on the gesture buttons (CLENCH, DOWN, RELAX, UP) to switch between different EMG recordings
+- Each gesture has a unique color and icon
+- The selected gesture's data will load automatically
+
+#### 2. **Data Statistics Panel**
+- View real-time statistics for the selected gesture:
+  - **Samples**: Total number of data points
+  - **Duration**: Recording time in seconds
+  - **Min/Max EMG**: Signal amplitude range
+  - **Average EMG**: Mean signal value
+  - **Samples/s**: Sampling rate
+  - **Time Range**: Start and end timestamps
+
+#### 3. **Interactive Chart**
+- **Zoom**: Use mouse wheel or pinch gestures to zoom in/out
+- **Pan**: Click and drag to move around the chart
+- **Brush Selection**: Use the bottom brush to select time ranges
+- **Tooltip**: Hover over the chart to see exact values
+- **Toggle View**: Switch between "Show Sampled" and "Show Full Data"
+
+#### 4. **Performance Controls**
+- **Sampled View**: Shows every nth data point for smooth performance
+- **Full Data View**: Shows all data points (may be slower for large datasets)
+- **Real-time Updates**: Chart updates automatically when switching gestures
+
+### Features Explained
+
+#### **Dark Theme UI**
+- Modern glassmorphism design with gradient backgrounds
+- Smooth animations and hover effects
+- Responsive layout for desktop and mobile
+
+#### **Interactive Charts**
+- Built with Recharts library for smooth performance
+- Custom tooltips showing time and EMG values
+- Brush selection for detailed time range analysis
+- Automatic scaling and axis formatting
+
+#### **Data Visualization**
+- Line charts showing EMG signal over time
+- Color-coded gestures for easy identification
+- Real-time statistics calculation
+- Performance-optimized rendering
+
+### Troubleshooting
+
+#### **If the app doesn't start:**
+```bash
+# Check if Node.js is installed
+node --version
+
+# Clear npm cache
+npm cache clean --force
+
+# Reinstall dependencies
+rm -rf node_modules package-lock.json
+npm install
+```
+
+#### **If data doesn't load:**
+- Make sure CSV files are in the `public/` folder
+- Check browser console for error messages
+- Verify file names match: `gesture0_session1.csv`, etc.
+
+#### **If charts are slow:**
+- Use "Show Sampled" mode for large datasets
+- Close other browser tabs to free memory
+- Try refreshing the page
+
 ## Performance Metrics
 
 ### Real-time Performance

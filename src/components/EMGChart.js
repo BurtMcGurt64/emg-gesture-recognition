@@ -15,11 +15,11 @@ const EMGChart = ({ data, gesture }) => {
 
   const getGestureColor = (gesture) => {
     switch (gesture) {
-      case 'CLENCH': return '#ff6b6b';
-      case 'DOWN': return '#4ecdc4';
-      case 'RELAX': return '#45b7d1';
-      case 'UP': return '#96ceb4';
-      default: return '#00d4ff';
+      case 'CLENCH': return '#d32f2f';  // Dark red
+      case 'DOWN': return '#1976d2';     // Blue
+      case 'RELAX': return '#388e3c';    // Green
+      case 'UP': return '#f57c00';       // Orange
+      default: return '#757575';         // Gray
     }
   };
 

@@ -44,9 +44,9 @@
 }
 
 .gesture-button.active {
-  background: linear-gradient(135deg, #00d4ff, #0099cc);
-  border-color: #00d4ff;
-  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+  background: linear-gradient(135deg, #8b9dc3, #6a7a9c);
+  border-color: #8b9dc3;
+  box-shadow: 0 0 20px rgba(139, 157, 195, 0.3);
   transform: translateY(-2px);
 }
 

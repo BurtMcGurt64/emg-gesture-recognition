@@ -12,12 +12,6 @@ const GestureSelector = ({ gestures, selectedGesture, onGestureChange }) => {
             className={`gesture-button ${selectedGesture === gesture ? 'active' : ''}`}
             onClick={() => onGestureChange(gesture)}
           >
-            <span className="gesture-icon">
-              {gesture === 'CLENCH' && '✊'}
-              {gesture === 'DOWN' && '👇'}
-              {gesture === 'RELAX' && '🖐️'}
-              {gesture === 'UP' && '👆'}
-            </span>
             <span className="gesture-name">{gesture}</span>
           </button>
         ))}
