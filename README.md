@@ -1,10 +1,10 @@
-# EMG-Based Gesture Recognition System
+## About This Project
 
-A complete electromyography (EMG) signal processing and machine learning system for real-time muscle gesture recognition. This project combines hardware interfacing, signal processing, deep learning, and web visualization to create an end-to-end EMG analysis platform.
+This is a personal project I developed over the summer to explore EMG-based control systems. I'm interested in how machine learning and real-time signal processing can be used for human/brain-computer interfaces, especially in biomedical and neuroengineering applications. I designed the system end-to-end, from sensor setup, signal processing, creating the neural network, and a visualization dashboard.
 
 ## Project Overview
 
-This system captures EMG signals from forearm muscles using surface electrodes and an Arduino-based amplifier, processes the signals in real-time, and classifies four distinct hand gestures: **CLENCH**, **DOWN**, **RELAX**, and **UP**. The project demonstrates practical applications in human-computer interaction, prosthetics, and biomedical signal processing.
+This system captures EMG signals from forearm muscles using surface electrodes and an Arduino-based amplifier, processes the signals in real-time, and classifies (using a PyTorch neural network) four different hand gestures: relax, clench, up, and down.
 
 ## Key Features
 
@@ -23,14 +23,12 @@ This system captures EMG signals from forearm muscles using surface electrodes a
 ### Machine Learning
 - **Hybrid neural network** combining CNN and MLP architectures
 - **Multi-input model** processing both raw signals and hand-crafted features
-- **Real-time inference** with sub-100ms latency
 - **PyTorch implementation** with GPU acceleration support
 
 ### Web Visualization
-- **React-based dashboard** with dark theme UI
+- **React-based dashboard**
 - **Interactive charts** using Recharts library
 - **Real-time data display** with zoom and pan capabilities
-- **Responsive design** for desktop and mobile viewing
 
 ## Technical Architecture
 
@@ -57,7 +55,7 @@ EMG Sensors → Arduino → Serial Port → Python Processing → Neural Network
    - PyTorch implementation with dropout and batch normalization
 
 4. **Web Interface** (`src/`)
-   - React frontend with modern dark UI
+   - React frontend
    - Real-time data visualization
    - Interactive gesture selection and statistics
 
@@ -162,148 +160,16 @@ npm start
 
 The app will open automatically at `http://localhost:3000`
 
-### Using the Web Interface
+## Thoughts
 
-#### 1. **Gesture Selection**
-- Click on the gesture buttons (CLENCH, DOWN, RELAX, UP) to switch between different EMG recordings
-- Each gesture has a unique color and icon
-- The selected gesture's data will load automatically
+This project started as a way for me to explore how electrical signals from the body - specifically EMG signals - can be used to create real time interfaces. I was curious about the overlap between neuroscience, electrical engineering, and machine learning, and I wanted to see how far I could get building a full-stack system on my own.
 
-#### 2. **Data Statistics Panel**
-- View real-time statistics for the selected gesture:
-  - **Samples**: Total number of data points
-  - **Duration**: Recording time in seconds
-  - **Min/Max EMG**: Signal amplitude range
-  - **Average EMG**: Mean signal value
-  - **Samples/s**: Sampling rate
-  - **Time Range**: Start and end timestamps
+While this system has limitations, working on it gave me a better understanding of several real-world areas where these ideas apply, like:
+- Assistive technologies for motor impairments
+- EMG-controlled prosthetics
+- Gesture-based human-computer interaction
+- Signal decoding in neuroengineering research
 
-#### 3. **Interactive Chart**
-- **Zoom**: Use mouse wheel or pinch gestures to zoom in/out
-- **Pan**: Click and drag to move around the chart
-- **Brush Selection**: Use the bottom brush to select time ranges
-- **Tooltip**: Hover over the chart to see exact values
-- **Toggle View**: Switch between "Show Sampled" and "Show Full Data"
+Along the way, I learned a lot—not just in software and modeling, but also in working with real hardware. I had to figure out how to solder connections, choose the right jumper wires, and understand how to safely wire up components using VIN, GND, and ENV ports on a microcontroller. I also spent time tuning parameters like baud rate and sampling frequency to ensure stable data transfer.
 
-#### 4. **Performance Controls**
-- **Sampled View**: Shows every nth data point for smooth performance
-- **Full Data View**: Shows all data points (may be slower for large datasets)
-- **Real-time Updates**: Chart updates automatically when switching gestures
-
-### Features Explained
-
-#### **Dark Theme UI**
-- Modern glassmorphism design with gradient backgrounds
-- Smooth animations and hover effects
-- Responsive layout for desktop and mobile
-
-#### **Interactive Charts**
-- Built with Recharts library for smooth performance
-- Custom tooltips showing time and EMG values
-- Brush selection for detailed time range analysis
-- Automatic scaling and axis formatting
-
-#### **Data Visualization**
-- Line charts showing EMG signal over time
-- Color-coded gestures for easy identification
-- Real-time statistics calculation
-- Performance-optimized rendering
-
-### Troubleshooting
-
-#### **If the app doesn't start:**
-```bash
-# Check if Node.js is installed
-node --version
-
-# Clear npm cache
-npm cache clean --force
-
-# Reinstall dependencies
-rm -rf node_modules package-lock.json
-npm install
-```
-
-#### **If data doesn't load:**
-- Make sure CSV files are in the `public/` folder
-- Check browser console for error messages
-- Verify file names match: `gesture0_session1.csv`, etc.
-
-#### **If charts are slow:**
-- Use "Show Sampled" mode for large datasets
-- Close other browser tabs to free memory
-- Try refreshing the page
-
-## Performance Metrics
-
-### Real-time Performance
-- **Latency**: <100ms end-to-end processing
-- **Throughput**: 1000Hz continuous data stream
-- **Accuracy**: 85-95% on trained gestures
-- **Memory Usage**: <50MB for real-time processing
-
-### Model Architecture
-- **Input**: 250-sample EMG window + 4 hand-crafted features
-- **CNN Branch**: 3 convolutional layers with batch normalization
-- **MLP Branch**: 2 fully connected layers for feature processing
-- **Combined Classifier**: 3-layer network with dropout
-
-## Applications
-
-### Biomedical Engineering
-- **Prosthetic control** for upper limb amputees
-- **Rehabilitation monitoring** for stroke patients
-- **Muscle fatigue analysis** in sports medicine
-
-### Human-Computer Interaction
-- **Gesture-based interfaces** for hands-free computing
-- **Gaming controllers** using muscle signals
-- **Accessibility tools** for users with limited mobility
-
-### Research Applications
-- **Neuroscience studies** of motor control
-- **Biomechanics research** for movement analysis
-- **Clinical diagnostics** for neuromuscular disorders
-
-## Future Enhancements
-
-### Planned Features
-- **Multi-channel EMG** support for more complex gestures
-- **Adaptive learning** for personalized gesture recognition
-- **Wireless data transmission** using Bluetooth/WiFi
-- **Mobile app** for iOS/Android platforms
-
-### Research Directions
-- **Transfer learning** for cross-subject generalization
-- **Unsupervised learning** for gesture discovery
-- **Real-time feedback** for gesture training
-- **Integration with VR/AR** systems
-
-## Technical Challenges Solved
-
-1. **Real-time Processing**: Multi-threaded architecture prevents data loss
-2. **Signal Quality**: Advanced filtering removes power line interference
-3. **Model Complexity**: Hybrid architecture balances accuracy and speed
-4. **User Experience**: Intuitive web interface for data visualization
-
-## Learning Outcomes
-
-This project demonstrates practical application of:
-- **Digital signal processing** principles
-- **Machine learning** in biomedical contexts
-- **Real-time systems** design and optimization
-- **Full-stack development** with hardware integration
-- **Data visualization** and user interface design
-
-## Academic Relevance
-
-This project aligns with **ECE + Neuroscience** studies by covering:
-- **Biomedical instrumentation** and signal acquisition
-- **Neural signal processing** and feature extraction
-- **Machine learning** for pattern recognition
-- **Real-time systems** and embedded programming
-- **Human-computer interaction** principles
-
----
-
-*This project represents a complete integration of hardware, software, and machine learning for practical biomedical applications. The combination of real-time signal processing, deep learning, and web visualization creates a comprehensive platform for EMG-based gesture recognition.* 
+On the signal side, the project deepened my understanding of concepts like Nyquist frequency, aliasing, sampling rate tradeoffs, and filter design (by using a Butterworth bandpass to isolate muscle activity). Debugging these systems in real time really forced me to think about how noise, latency, and theoretical choices affect the final product's performance.
