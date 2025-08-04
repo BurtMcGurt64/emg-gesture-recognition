@@ -1,15 +1,3 @@
-"""
-EMG Gesture Recognition Neural Network Models
-
-This module contains PyTorch implementations of neural networks for EMG-based
-gesture recognition. The models combine convolutional neural networks (CNN) for
-temporal feature extraction with multi-layer perceptrons (MLP) for hand-crafted
-feature processing.
-
-Author: [Your Name]
-Date: [Current Date]
-"""
-
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
