@@ -1,13 +1,3 @@
-"""
-EMG Data Collection Module
-
-This module provides functionality for collecting EMG signals from an Arduino-based
-amplifier and saving them as CSV files for training machine learning models.
-
-Author: [Your Name]
-Date: [Current Date]
-"""
-
 import serial
 import time
 import csv
